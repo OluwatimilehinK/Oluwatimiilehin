@@ -107,12 +107,14 @@ const Project = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
+                  <a href={project.link}>
                   <ArrowUpRight
                     className="w-5 h-5 
                   text-muted-foreground group-hover:text-primary
                    group-hover:translate-x-1 
                    group-hover:-translate-y-1 transition-all"
                   />
+                  </a>
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
