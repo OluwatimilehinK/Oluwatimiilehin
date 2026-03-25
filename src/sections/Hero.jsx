@@ -71,7 +71,7 @@ const Hero = () => {
                    </Button>
                     </a>
                 </a>
-                <a href="/Oluwatimilehin.pdf.pdf" download="resume.pdf">
+                <a href="/resume.pdf" download="Oluwatimilehin's Resume">
                   <AnimatedBorderButton>
                     <Download className="w-5 h-5" />
                     Download CV
