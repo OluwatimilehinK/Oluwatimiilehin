@@ -24,7 +24,7 @@ const testimonials = [
     author: "Abigeal Ali",
     role: "Product Designer, BuildUpNg",
     avatar:
-      "https://media.licdn.com/dms/image/v2/D4D35AQHEiAbQDKUvCg/profile-framedphoto-shrink_200_200/B4DZx8PE.kIYAY-/0/1771610853597?e=1773846000&v=beta&t=rjg70KbOOHF5BNm15Sk7v4cjkcJjsubtc9yeWk23yYs",
+      "https://media.licdn.com/dms/image/v2/D4D35AQHEiAbQDKUvCg/profile-framedphoto-shrink_400_400/B4DZx8PE.kIYAc-/0/1771610853608?e=1775566800&v=beta&t=qfoki6Uoqt0ay-CjBhkJAIlkcparqv9RA3OVbNwwov4",
   },
 ];
 
