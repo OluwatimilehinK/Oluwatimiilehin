@@ -9,6 +9,7 @@ const skills = [
   "ReactJS",
   "Vercel",
   "Tailwind CSS",
+  "Motion",
   "Figma",
   "Git",
   "GitHub Actions",
