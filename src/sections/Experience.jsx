@@ -1,6 +1,15 @@
 const experiences = [
   {
-    period: "2025 — Present",
+    period: "2026 — Present",
+    role: "Junior Frontend Engineer",
+    company: "Tirlun.ai",
+    description:
+      "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
+    technologies: ["React", "JavaScript"],
+    current: true,
+  },
+  {
+    period: "2025 — 2026",
     role: "Intern Frontend Engineer",
     company: "Trinixbyte Solutions Limited",
     description:
@@ -17,24 +26,6 @@ const experiences = [
     technologies: ["HTML", "CSS", "JAVASCRIPT", "REACT"],
     current: false,
   },
-  // {
-  //   period: "2019 — 2020",
-  //   role: "Junior Developer",
-  //   company: "StartUp Labs",
-  //   description:
-  //     "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-  //   technologies: ["React", "Node.js", "MongoDB", "AWS"],
-  //   current: false,
-  // },
-  // {
-  //   period: "2018 — 2019",
-  //   role: "Freelance Developer",
-  //   company: "Self-Employed",
-  //   description:
-  //     "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
-  //   technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
-  //   current: false,
-  // },
 ];
 
  const Experience = () => {
