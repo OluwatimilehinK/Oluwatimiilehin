@@ -7,6 +7,7 @@ import { Github, Linkedin, Twitter, ChevronDown } from 'lucide-react'
 const skills = [
   "JavaScript",
   "ReactJS",
+  "NextJS",
   "Vercel",
   "Tailwind CSS",
   "Motion",
