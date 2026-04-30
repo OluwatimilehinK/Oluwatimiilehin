@@ -6,6 +6,7 @@ import Experience from "./sections/Experience"
 import Hero from "./sections/Hero"
 import Project from "./sections/Project"
 import Testimonials from "./sections/Testimonials"
+import ChatWidget from "./components/ChatWidget"
 const App = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -19,6 +20,7 @@ const App = () => {
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   )
 }

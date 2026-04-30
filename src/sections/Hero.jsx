@@ -14,6 +14,7 @@ const skills = [
   "Figma",
   "Git",
   "GitHub Actions",
+  "AI Tools",
 ];
 
 const Hero = () => {
