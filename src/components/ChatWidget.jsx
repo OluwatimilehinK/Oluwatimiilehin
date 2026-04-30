@@ -216,7 +216,7 @@ const ChatWidget = () => {
               <p className="text-sm font-semibold leading-tight">Ask anything</p>
               <p className="text-xs text-muted-foreground flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                Tutor & guide to Timilehin
+                Online
               </p>
             </div>
             <button

@@ -33,3 +33,5 @@ api/_github.json
 *.njsproj
 *.sln
 *.sw?
+.vercel
+.env*.local
