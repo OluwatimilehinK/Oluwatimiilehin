@@ -7,24 +7,21 @@ const testimonials = [
       "Kazeem is one of the most talented engineers I've worked with. His attention to detail and ability to translate complex requirements into elegant solutions is remarkable.",
     author: "Paul Ajadi",
     role: "CTO, Trinixbyte Solutions.",
-    avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH8jMnmIf3UXA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719177298975?e=1775088000&v=beta&t=NFS2v9nZbouG0s5wdIjwt0yHmokjbZ8oHJSv_0iNDFE",
+    avatar: "/paulAjadi.jpg",
   },
   {
     quote:
       "Working with Kazeem was a game-changer for our project. He delivered ahead of schedule with code quality that set a new standard for our team.",
     author: "Tofunmi Biala",
     role: "Product Manager, Digital Solutions",
-    avatar:
-      "https://media.licdn.com/dms/image/v2/D4D03AQGc-8YxMLH4hQ/profile-displayphoto-scale_200_200/B4DZuiBKAIIEAY-/0/1767949772308?e=1775088000&v=beta&t=NTCH4vJZ0O0HgG1F3aqA2ppCDok7mE9O0Lvpr4aieFU",
+    avatar: "/tofunmiBiala.jpg",
   },
   {
     quote:
       "Not only is Kazeem technically brilliant, but he's also a fantastic communicator and team player. He elevated everyone around him.",
     author: "Abigeal Ali",
     role: "Product Designer, BuildUpNg",
-    avatar:
-      "https://media.licdn.com/dms/image/v2/D4D35AQHEiAbQDKUvCg/profile-framedphoto-shrink_400_400/B4DZx8PE.kIYAc-/0/1771610853608?e=1775566800&v=beta&t=qfoki6Uoqt0ay-CjBhkJAIlkcparqv9RA3OVbNwwov4",
+    avatar: "/abigealAli.jpg",
   },
 ];
 

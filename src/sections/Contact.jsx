@@ -111,7 +111,7 @@ const contactInfo = [
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 max-w-5xl mx-auto">
           <div className="glass p-6 sm:p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
             <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
               <div>

@@ -68,18 +68,18 @@ const experiences = [
 
         {/* Timeline */}
         <div className="relative">
-          <div className="timeline-glow absolute left-2 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]" />
+          <div className="timeline-glow absolute left-2 lg:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]" />
 
           {/* Experience Items */}
           <div className="space-y-10 sm:space-y-12">
             {experiences.map((exp, idx) => (
               <div
                 key={idx}
-                className="relative grid md:grid-cols-2 gap-6 sm:gap-8 animate-fade-in"
+                className="relative grid lg:grid-cols-2 gap-6 sm:gap-8 animate-fade-in"
                 style={{ animationDelay: `${(idx + 1) * 150}ms` }}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-2 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
+                <div className="absolute left-2 lg:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
                   {exp.current && (
                     <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
                   )}
@@ -87,10 +87,10 @@ const experiences = [
 
                 {/* Content */}
                 <div
-                  className={`pl-8 md:pl-0 ${
+                  className={`pl-8 lg:pl-0 ${
                     idx % 2 === 0
-                      ? "md:pr-16 md:text-right"
-                      : "md:col-start-2 md:pl-16"
+                      ? "lg:pr-16 lg:text-right"
+                      : "lg:col-start-2 lg:pl-16"
                   }`}
                 >
                   <div

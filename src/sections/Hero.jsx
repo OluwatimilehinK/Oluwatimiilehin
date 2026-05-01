@@ -47,7 +47,7 @@ const Hero = () => {
         <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 relative z-10">
           <div className='grid lg:grid-cols-2 gap-10 sm:gap-12 items-center justify-center'>
             {/* left column - Text content */}
-            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass text-xs sm:text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
@@ -60,13 +60,13 @@ const Hero = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100" >
                   Crafting <span className="text-primary glow-text"> Seamless </span> <br />  Experiences with <br /> <span className="font-serif italic font-normal text-white">React. </span>
                 </h1>
-                <p className='text-muted-foreground mt-4 max-w-lg animate-fade-in animation-delay-200 text-base sm:text-lg'>
+                <p className='text-muted-foreground mt-4 max-w-lg mx-auto lg:mx-0 animate-fade-in animation-delay-200 text-base sm:text-lg'>
                   Hi, I am Timlehin Kazeem. A passionate software engineer specializing in React, and Javascript I bring ideas to life through clean code and innovative design.
                 </p>
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3 sm:gap-4 animate-fade-in animation-delay-300">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in animation-delay-300">
                 <a href="#contact">
                   <Button size="lg">
                    Contact Me <ArrowRight className="w-5 h-5" />
@@ -80,7 +80,7 @@ const Hero = () => {
                 </a>
               </div>
               {/* Social Links */}
-              <div className="flex items-center flex-wrap gap-3 sm:gap-4 animate-fade-in animation-delay-400">
+              <div className="flex items-center flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in animation-delay-400">
                 <span className="text-sm text-muted-foreground">Follow me: </span>
                 {[
                   { icon: Github, href: "https://github.com/OluwatimilehinK" },

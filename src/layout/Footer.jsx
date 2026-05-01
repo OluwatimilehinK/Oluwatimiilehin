@@ -19,9 +19,9 @@ const Footer = () => {
   return (
     <footer className="py-10 sm:py-12 border-t border-border">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           {/* Logo & Copyright */}
-          <div className="text-center md:text-left">
+          <div className="text-center lg:text-left">
             <a href="#" className="text-xl font-bold tracking-tight">
               TK<span className="text-primary">.</span>
             </a>

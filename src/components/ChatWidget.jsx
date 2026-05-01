@@ -36,6 +36,7 @@ const ChatWidget = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [confirmClearOpen, setConfirmClearOpen] = useState(false);
 
   // Typewriter pacing: while typingState is non-null, the message at messageIndex
   // reveals one chunk at a time even though full text may already be in messages[i].content.
@@ -175,12 +176,15 @@ const ChatWidget = () => {
     send(input);
   };
 
-  const clearChat = () => {
+  const requestClearChat = () => {
     if (loading || typingState) return;
-    if (window.confirm("Clear this conversation?")) {
-      setMessages([INITIAL_MESSAGE]);
-      setError(null);
-    }
+    setConfirmClearOpen(true);
+  };
+
+  const confirmClearChat = () => {
+    setMessages([INITIAL_MESSAGE]);
+    setError(null);
+    setConfirmClearOpen(false);
   };
 
   const showSuggestions =
@@ -223,7 +227,7 @@ const ChatWidget = () => {
               type="button"
               aria-label="Clear conversation"
               title="Clear conversation"
-              onClick={clearChat}
+              onClick={requestClearChat}
               disabled={loading || !!typingState}
               className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             >
@@ -232,7 +236,7 @@ const ChatWidget = () => {
           </div>
 
           {/* Messages */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-4 py-4 space-y-3">
             {messages.map((m, i) => {
               const isTyping = typingState?.messageIndex === i;
               const text = isTyping
@@ -315,6 +319,53 @@ const ChatWidget = () => {
               <Send className="w-4 h-4" />
             </button>
           </form>
+
+          {/* Clear-chat confirm modal — scoped inside the panel so it overlays only the chat */}
+          {confirmClearOpen && (
+            <div
+              className="absolute inset-0 z-10 flex items-center justify-center bg-background/70 backdrop-blur-sm animate-fade-in"
+              onClick={() => setConfirmClearOpen(false)}
+            >
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="clear-chat-title"
+                onClick={(e) => e.stopPropagation()}
+                className="mx-4 w-full max-w-[300px] glass rounded-2xl glow-border p-5 shadow-xl"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0">
+                    <Trash2 className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 id="clear-chat-title" className="text-sm font-semibold leading-tight">
+                      Clear this conversation?
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      This will permanently delete all messages in this chat. You can't undo it.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-end gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setConfirmClearOpen(false)}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-surface transition-all"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={confirmClearChat}
+                    autoFocus
+                    className="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-500/90 text-white hover:bg-red-500 transition-all"
+                  >
+                    Clear chat
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>
