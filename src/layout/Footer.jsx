@@ -17,9 +17,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <footer className="py-10 sm:py-12 border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight">
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <nav className="flex flex-wrap justify-center gap-6">
+          <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {footerLinks.map((link) => (
               <a
                 key={link.href}

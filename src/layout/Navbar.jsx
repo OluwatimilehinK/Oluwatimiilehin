@@ -29,7 +29,7 @@ const Navbar = () => {
         isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
       }  z-50`}
     >
-      <nav className="container mx-auto px-6 flex items-center justify-between">
+      <nav className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <a
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
@@ -71,7 +71,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden glass-strong animate-fade-in">
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+          <div className="container mx-auto px-4 sm:px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <a
                 href={link.href}

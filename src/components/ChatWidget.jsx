@@ -196,9 +196,9 @@ const ChatWidget = () => {
         type="button"
         aria-label={open ? "Close chat" : "Open chat"}
         onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
-        {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {open ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />}
         {!open && (
           <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
         )}
@@ -206,7 +206,7 @@ const ChatWidget = () => {
 
       {/* Chat Panel */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[min(380px,calc(100vw-3rem))] h-[min(560px,calc(100vh-8rem))] glass rounded-2xl glow-border flex flex-col overflow-hidden animate-fade-in">
+        <div className="fixed bottom-20 right-3 left-3 sm:bottom-24 sm:right-6 sm:left-auto z-50 sm:w-[min(380px,calc(100vw-3rem))] h-[min(560px,calc(100vh-7rem))] sm:h-[min(560px,calc(100vh-8rem))] glass rounded-2xl glow-border flex flex-col overflow-hidden animate-fade-in">
           {/* Header */}
           <div className="px-4 py-3 border-b border-border/50 flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
