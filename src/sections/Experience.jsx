@@ -1,13 +1,13 @@
 const experiences = [
-  {
-    period: "2026 — Present",
-    role: "Junior Frontend Engineer",
-    company: "Tirlun.ai",
-    description:
-      "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
-    technologies: ["React", "JavaScript"],
-    current: true,
-  },
+  // {
+  //   period: "2026 — Present",
+  //   role: "Junior Frontend Engineer",
+  //   company: "Tirlun.ai",
+  //   description:
+  //     "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
+  //   technologies: ["React", "JavaScript"],
+  //   current: true,
+  // },
   {
     period: "2025 — 2026",
     role: "Intern Frontend Engineer",

@@ -12,7 +12,6 @@
     "fetch-github": "node scripts/fetch-github.js"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.2.1",
     "lucide-react": "^0.577.0",
     "react": "^19.2.0",
