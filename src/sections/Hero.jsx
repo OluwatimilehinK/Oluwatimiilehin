@@ -124,7 +124,7 @@ const Hero = () => {
                          </div>
                          {/* Stats Badge */}
                          <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 glass rounded-xl px-3 py-2 sm:px-4 sm:py-3 animate-float animation-delay-500">
-                           <div className="text-xl sm:text-2xl font-bold text-primary">2+</div>
+                           <div className="text-xl sm:text-2xl font-bold text-primary">3+</div>
                            <div className="text-[10px] sm:text-xs text-muted-foreground">
                              Years Exp.
                            </div>
