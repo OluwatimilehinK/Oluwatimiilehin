@@ -2,6 +2,45 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, Send, Loader2, Trash2 } from "lucide-react";
 
 const STORAGE_KEY = "timilehin-chat-history-v1";
+const STORAGE_POS_KEY = "timilehin-chat-pos-v1";
+
+const DRAG_THRESHOLD = 5; // px of pointer travel before a press becomes a drag
+const ICON_GAP = 8; // px between icon and chat panel
+const VIEWPORT_MARGIN = 12; // px keep-out from viewport edges
+
+const getIconSize = () =>
+  typeof window !== "undefined" && window.matchMedia("(min-width: 640px)").matches ? 56 : 48;
+
+const clampPos = (p, size) => {
+  if (typeof window === "undefined") return p;
+  return {
+    x: Math.max(VIEWPORT_MARGIN, Math.min(window.innerWidth - size - VIEWPORT_MARGIN, p.x)),
+    y: Math.max(VIEWPORT_MARGIN, Math.min(window.innerHeight - size - VIEWPORT_MARGIN, p.y)),
+  };
+};
+
+const getDefaultPos = () => {
+  if (typeof window === "undefined") return { x: 0, y: 0 };
+  const size = getIconSize();
+  // Same offsets as the original bottom-4/right-4 (mobile) and bottom-6/right-6 (desktop).
+  const margin = size === 56 ? 24 : 16;
+  return {
+    x: window.innerWidth - size - margin,
+    y: window.innerHeight - size - margin,
+  };
+};
+
+const loadPos = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_POS_KEY);
+    if (!raw) return null;
+    const p = JSON.parse(raw);
+    if (typeof p?.x === "number" && typeof p?.y === "number") return p;
+  } catch {
+    // Corrupt entry — fall back to default.
+  }
+  return null;
+};
 
 const SUGGESTIONS = [
   "Explain React hooks in simple terms",
@@ -45,6 +84,110 @@ const ChatWidget = () => {
 
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
+
+  // Draggable icon position. Restore saved spot (clamped to current viewport) or default to bottom-right.
+  const [pos, setPos] = useState(() => {
+    if (typeof window === "undefined") return { x: 0, y: 0 };
+    const saved = loadPos();
+    return saved ? clampPos(saved, getIconSize()) : getDefaultPos();
+  });
+
+  // Keep the icon on-screen when the viewport shrinks.
+  useEffect(() => {
+    const onResize = () => setPos((p) => clampPos(p, getIconSize()));
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const dragRef = useRef(null);
+
+  const handlePointerDown = (e) => {
+    if (e.button !== undefined && e.button !== 0) return; // primary button / touch only
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      origX: pos.x,
+      origY: pos.y,
+      lastPos: pos,
+      moved: false,
+    };
+  };
+
+  const handlePointerMove = (e) => {
+    const d = dragRef.current;
+    if (!d) return;
+    const dx = e.clientX - d.startX;
+    const dy = e.clientY - d.startY;
+    if (!d.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
+    d.moved = true;
+    const next = clampPos({ x: d.origX + dx, y: d.origY + dy }, getIconSize());
+    d.lastPos = next;
+    setPos(next);
+  };
+
+  const handlePointerUp = (e) => {
+    const d = dragRef.current;
+    dragRef.current = null;
+    if (!d) return;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      // Capture may already be released — ignore.
+    }
+    if (d.moved) {
+      try {
+        localStorage.setItem(STORAGE_POS_KEY, JSON.stringify(d.lastPos));
+      } catch {
+        // localStorage may be unavailable — drag still works in-memory.
+      }
+    } else {
+      setOpen((o) => !o);
+    }
+  };
+
+  const handleIconKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpen((o) => !o);
+    }
+  };
+
+  // Anchor the panel next to the icon, picking the side with more space.
+  const getPanelStyle = () => {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const size = getIconSize();
+    const isDesktop = vw >= 640;
+
+    const placeAbove = pos.y + size / 2 > vh / 2;
+    const placeLeftOfIcon = pos.x + size / 2 > vw / 2;
+
+    const availableHeight = placeAbove
+      ? pos.y - ICON_GAP - VIEWPORT_MARGIN
+      : vh - (pos.y + size) - ICON_GAP - VIEWPORT_MARGIN;
+    const height = Math.max(240, Math.min(560, availableHeight));
+
+    const vertical = placeAbove
+      ? { bottom: vh - pos.y + ICON_GAP }
+      : { top: pos.y + size + ICON_GAP };
+
+    if (!isDesktop) {
+      return {
+        left: VIEWPORT_MARGIN,
+        right: VIEWPORT_MARGIN,
+        ...vertical,
+        height,
+      };
+    }
+
+    const width = Math.min(380, vw - VIEWPORT_MARGIN * 2);
+    const horizontal = placeLeftOfIcon
+      ? { right: vw - (pos.x + size) }
+      : { left: pos.x };
+
+    return { ...horizontal, ...vertical, width, height };
+  };
 
   // Persist messages (skip the lone welcome state).
   useEffect(() => {
@@ -195,12 +338,17 @@ const ChatWidget = () => {
 
   return (
     <>
-      {/* Floating Toggle Button */}
+      {/* Floating Toggle Button — draggable */}
       <button
         type="button"
         aria-label={open ? "Close chat" : "Open chat"}
-        onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+        onKeyDown={handleIconKeyDown}
+        style={{ position: "fixed", left: pos.x, top: pos.y, touchAction: "none" }}
+        className="z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-grab active:cursor-grabbing select-none"
       >
         {open ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />}
         {!open && (
@@ -208,9 +356,12 @@ const ChatWidget = () => {
         )}
       </button>
 
-      {/* Chat Panel */}
+      {/* Chat Panel — anchored adjacent to the (possibly dragged) icon */}
       {open && (
-        <div className="fixed bottom-20 right-3 left-3 sm:bottom-24 sm:right-6 sm:left-auto z-50 sm:w-[min(380px,calc(100vw-3rem))] h-[min(560px,calc(100vh-7rem))] sm:h-[min(560px,calc(100vh-8rem))] glass rounded-2xl glow-border flex flex-col overflow-hidden animate-fade-in">
+        <div
+          style={{ position: "fixed", ...getPanelStyle() }}
+          className="z-50 glass rounded-2xl glow-border flex flex-col overflow-hidden animate-fade-in"
+        >
           {/* Header */}
           <div className="px-4 py-3 border-b border-border/50 flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
