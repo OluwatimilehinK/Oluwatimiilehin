@@ -42,8 +42,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground animate-fade-in animation-delay-200 px-2 sm:px-0">
-            Have a project in mind? Reach out via email or phone — I'd love to
-            hear about it and talk through how we can work together.
+            Have a project in mind? Reach out via email or phone. I'd love to hear about it and talk through how we can work together.
           </p>
         </div>
 
