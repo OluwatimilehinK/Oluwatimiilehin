@@ -2,6 +2,32 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
+    title: "JustPartyGames",
+    description:
+      "Just Party Games is an interactive entertainment web application that provides fun, engaging, and easy-to-play party games for friends, families, and social gatherings. The platform delivers a seamless experience with exciting game options designed to create memorable moments and keep users entertained anytime, anywhere.",
+    image: "/projects/fortini.png",
+    tags: ["React", "TailwindCSS"],
+    link: "https://https://fortinicareguard.buildupng.com/",
+    github: "https://github.com/BuildUpInstitute/fortini-care-guard-user-frontend",
+  },
+    {
+    title: "Fortini Careguard",
+    description:
+      "Role-based cyber security training designed specifically for UK care sector staff. Practical, accessible, and CQC-ready from care assistants to board directors.",
+    image: "/projects/justParty.png",
+    tags: ["React", "TailwindCSS"],
+    link: "https://justpartygames.buildupng.com/",
+    github: "https://github.com/BuildUpInstitute/just-party-games-user-frontend",
+  },
+  // {
+  //   title: "tirlun.ai",
+  //   description:
+  //     "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
+  //   image: "/projects/tirlun.ai.png",
+  //   tags: ["Next.js", "TailwindCSS"],
+  //   link: "https://tirlun.ai/",
+  // },
+  {
     title: "A Portfolio Website",
     description:
       "Portfolio website showcasing Oluwatimilehin Kazeem’s web development skills, projects, experience, and contact information.",
@@ -15,7 +41,7 @@ const projects = [
     description:
       "Modern website promoting AI solutions, automation tools, web development services, and digital business transformation.",
     image: "/projects/project2.png",
-    tags: [ "JavaScript", "React", "Tailwind"],
+    tags: ["JavaScript", "React", "Tailwind"],
     link: "https://virtual-r-psi-kohl.vercel.app/",
     github: "https://github.com/OluwatimilehinK/VirtualR",
   },
@@ -41,7 +67,10 @@ const projects = [
 
 const Project = () => {
   return (
-    <section id="projects" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-16 sm:py-24 lg:py-32 relative overflow-hidden"
+    >
       {/* Bg glows */}
       <div className="absolute top-1/4 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -95,15 +124,17 @@ const Project = () => {
                   >
                     <ArrowUpRight className="w-5 h-5" />
                   </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open ${project.title} GitHub repo`}
-                    className="p-2.5 sm:p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} GitHub repo`}
+                      className="p-2.5 sm:p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -149,8 +180,12 @@ const Project = () => {
         {/* View All CTA */}
         <div className="text-center mt-10 sm:mt-12 animate-fade-in animation-delay-500">
           <AnimatedBorderButton>
-            <a href="https://github.com/OluwatimilehinK?tab=repositories" target="_blank" rel="noopener noreferrer">
-            View All Projects
+            <a
+              href="https://github.com/OluwatimilehinK?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All Projects
             </a>
             <ArrowUpRight className="w-5 h-5" />
           </AnimatedBorderButton>
