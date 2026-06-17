@@ -2,18 +2,18 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "JustPartyGames",
+    title: "Fortini Careguard",
     description:
-      "Just Party Games is an interactive entertainment web application that provides fun, engaging, and easy-to-play party games for friends, families, and social gatherings. The platform delivers a seamless experience with exciting game options designed to create memorable moments and keep users entertained anytime, anywhere.",
+      "Role-based cyber security training designed specifically for UK care sector staff. Practical, accessible, and CQC-ready from care assistants to board directors.",
     image: "/projects/fortini.png",
     tags: ["React", "TailwindCSS"],
     link: "https://https://fortinicareguard.buildupng.com/",
     github: "https://github.com/BuildUpInstitute/fortini-care-guard-user-frontend",
   },
     {
-    title: "Fortini Careguard",
+    title: "JustPartyGames",
     description:
-      "Role-based cyber security training designed specifically for UK care sector staff. Practical, accessible, and CQC-ready from care assistants to board directors.",
+      "Just Party Games is an interactive entertainment web application that provides fun, engaging, and easy-to-play party games for friends, families, and social gatherings. The platform delivers a seamless experience with exciting game options designed to create memorable moments and keep users entertained anytime, anywhere.",
     image: "/projects/justParty.png",
     tags: ["React", "TailwindCSS"],
     link: "https://justpartygames.buildupng.com/",
