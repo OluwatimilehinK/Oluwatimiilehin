@@ -1,6 +1,15 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
+   {
+    title: "Crypto tracker",
+    description:
+      "crypto tracking platform allows users to monitor real-time prices, market trends, and key data for top cryptocurrencies like Bitcoin, Ethereum, and more.",
+    image: "/projects/cryptoTracker.png",
+    tags: ["React", "TailwindCSS"],
+    link: "https://crypto-tracker-seven-azure.vercel.app/",
+    github: "https://github.com/OluwatimilehinK/crypto-tracker",
+  },
   {
     title: "Fortini Careguard",
     description:
@@ -27,15 +36,7 @@ const projects = [
   //   tags: ["Next.js", "TailwindCSS"],
   //   link: "https://tirlun.ai/",
   // },
-  {
-    title: "A Portfolio Website",
-    description:
-      "Portfolio website showcasing Oluwatimilehin Kazeem’s web development skills, projects, experience, and contact information.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS"],
-    link: "https://oluwatimilehinio.vercel.app/",
-    github: "https://github.com/OluwatimilehinK/Beautiful-Portfolio",
-  },
+ 
   {
     title: "VirtualR",
     description:
