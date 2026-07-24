@@ -1,7 +1,15 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
-   {
+  {
+    title: "tirlun.ai",
+    description:
+      "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
+    image: "/projects/tirlun.ai.png",
+    tags: ["Next.js", "TailwindCSS", "tawk.to"],
+    link: "https://tirlun.ai/",
+  },
+  {
     title: "Crypto tracker",
     description:
       "crypto tracking platform allows users to monitor real-time prices, market trends, and key data for top cryptocurrencies like Bitcoin, Ethereum, and more.",
@@ -16,35 +24,20 @@ const projects = [
       "Role-based cyber security training designed specifically for UK care sector staff. Practical, accessible, and CQC-ready from care assistants to board directors.",
     image: "/projects/fortini.png",
     tags: ["React", "TailwindCSS"],
-    link: "https://https://fortinicareguard.buildupng.com/",
-    github: "https://github.com/BuildUpInstitute/fortini-care-guard-user-frontend",
+    // link: "https://https://fortinicareguard.buildupng.com/",
+    link: "https://fortinicareguard.buildupng.com/",
+    github:
+      "https://github.com/BuildUpInstitute/fortini-care-guard-user-frontend",
   },
-    {
+  {
     title: "JustPartyGames",
     description:
       "Just Party Games is an interactive entertainment web application that provides fun, engaging, and easy-to-play party games for friends, families, and social gatherings. The platform delivers a seamless experience with exciting game options designed to create memorable moments and keep users entertained anytime, anywhere.",
     image: "/projects/justParty.png",
     tags: ["React", "TailwindCSS"],
     link: "https://justpartygames.buildupng.com/",
-    github: "https://github.com/BuildUpInstitute/just-party-games-user-frontend",
-  },
-  // {
-  //   title: "tirlun.ai",
-  //   description:
-  //     "Tirlun.ai is an innovative agritech company that leverages artificial intelligence to improve farm operations and workforce training. Its platform enables agricultural businesses to create structured training systems, manage teams, and digitize farm processes for better productivity and sustainability.",
-  //   image: "/projects/tirlun.ai.png",
-  //   tags: ["Next.js", "TailwindCSS"],
-  //   link: "https://tirlun.ai/",
-  // },
- 
-  {
-    title: "VirtualR",
-    description:
-      "Modern website promoting AI solutions, automation tools, web development services, and digital business transformation.",
-    image: "/projects/project2.png",
-    tags: ["JavaScript", "React", "Tailwind"],
-    link: "https://virtual-r-psi-kohl.vercel.app/",
-    github: "https://github.com/OluwatimilehinK/VirtualR",
+    github:
+      "https://github.com/BuildUpInstitute/just-party-games-user-frontend",
   },
   {
     title: "AstroLens",
@@ -64,6 +57,15 @@ const projects = [
     link: "https://code-flow-rosy.vercel.app/",
     github: "https://github.com/OluwatimilehinK/CodeFlow",
   },
+  // {
+  //   title: "VirtualR",
+  //   description:
+  //     "Modern website promoting AI solutions, automation tools, web development services, and digital business transformation.",
+  //   image: "/projects/project2.png",
+  //   tags: ["JavaScript", "React", "Tailwind"],
+  //   link: "https://virtual-r-psi-kohl.vercel.app/",
+  //   github: "https://github.com/OluwatimilehinK/VirtualR",
+  // },
 ];
 
 const Project = () => {
